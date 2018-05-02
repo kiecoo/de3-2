@@ -1,4 +1,4 @@
-///add forEach (based on success-v12-1-(way2))
+//v11
 <!doctype html>	
 	<html>
 	  <head>
@@ -132,18 +132,14 @@
            function next (x_data) {
 		    //var element1 = bel`<div>${data.map(x => bel`<p>${x.user}</p>`)}</div>`
 		    //done(element1)
-		    x_data.forEach(putEl)
+		     x_data.forEach(putEl)
 		   
 		    function putEl(y_data){
-		   var el = bel`
-			    <div class=${css.card} onmouseenter=${hoverCard} onmouseleave=${unhoverCard}>
-			      ${cardContainer}
-			    </div>
-			  `
+		  
 		   
 			  
 			  var username          = y_data.username
-			  var name              = 'Nina'
+			  var name              = y_data.username
 			  var cardText          = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru '
 			  var imageUrl          = 'https://nomadlist.com/assets/img/cities/phuket-thailand-500px.jpg'
 			  var city              = 'Berlin'
@@ -178,6 +174,12 @@
 				      <div class=${css.cardText}>${cardText}</div>
 				    </div>
 				  `
+			   
+			    var el = bel`
+			    <div class=${css.card} onmouseenter=${hoverCard} onmouseleave=${unhoverCard}>
+			      ${cardContainer}
+			    </div>
+			  `
 				  function hoverCard (event) {
 				    el.appendChild(cardContainer_hover)
 				    el.removeChild(cardContainer)
@@ -188,7 +190,7 @@
 				  }
 		   
 		    fx_done(el)
-	        }
+			    }
             }
 		
 	  
