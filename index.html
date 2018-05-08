@@ -1,4 +1,4 @@
-//v11
+//v11-add button
 <!doctype html>	
 	<html>
 	  <head>
@@ -127,6 +127,16 @@
 	    padding:.1px;
 	  }
 	`
+	
+	    var makeSignupButton = require('./githubsignin.js')  
+    
+      // makeSignupButton   
+    var GITHUB_CLIENT_ID = '62483029222d02636782'
+    
+	var button = makeSignupButton(GITHUB_CLIENT_ID)
+	document.body.appendChild(button)
+		    
+	// profile
 	function profile (fx_done) {
 	   getGithubData (next)
            function next (x_data) {
