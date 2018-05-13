@@ -9,7 +9,7 @@
 		       /**************************************************************************
 			  MODULE DEFINITION
 			**************************************************************************/
-			function getGithubData (callback) {
+			function getGithubData1 (callback) {
 			  var url = 'https://api.github.com/repos/wizardamigos/profiles/forks'
 			  var results = []
 			  var allusers
