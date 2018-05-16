@@ -1,4 +1,4 @@
-//	debug getGithubData1 in index.js( activity-feed  instead of json-data )
+//	add function loadCode &loadData & code
 <!doctype html>	
 	<html>
 	  <head>
@@ -179,7 +179,36 @@
 		    
 	// profile
 	function profile (fx_done) {
-	   getGithubData (next)
+	       var code = location.search.split('=')[1]
+               console.log(code)
+		
+		if (code) {
+		   loadCode (error, code)
+		} else {
+		  // show page with github signin button
+		}
+	   
+	       function loadCode (error, code) { // this is triggered when the user clicks the button
+		  if (error) return console.error(error)
+		  console.log(`github responded with "${code}", so let's fetch a lot of data :-)`)
+		   getGithubData(code, loadData)
+		}
+
+		function loadData (error, data) {
+		  if (error) return console.error(error)
+		  console.log(`github sent us a lot of data, so let's use it to build the page :-)`)
+			
+		 // I don't know how to deal with these 4 lines & function next(L212)	
+		  var el = page(data)
+		  fx_done(el)
+		  document.body.innerHTML = '' // to clear and remove the signup button
+		  document.body.appendChild(el)
+		}
+
+
+		
+	   //getGithubData (next)  //Q1:after using "funciton loadData" instead of this line.(so we also affect 'next')
+          //I know I need to move 'next' to somewhere inside of function LoadData, but I don't know where to put 'next
            function next (x_data) {
 		    //var element1 = bel`<div>${data.map(x => bel`<p>${x.user}</p>`)}</div>`
 		    //done(element1)
@@ -240,7 +269,7 @@
 				    el.appendChild(cardContainer)
 				  }
 		   
-		    fx_done(el)
+		  //  fx_done(el)
 			    }
             }
 		
@@ -259,8 +288,11 @@
 	}
 	 
 	profile(done)
-        function done (el) { document.body.appendChild(el) }
-	   
+        //function done (el) { document.body.appendChild(el) }
+	function done (error, el) {
+	  if (error) return console.error(error) // or `document.body.innerHTML = `<h1>${error}</h1>`
+	  document.body.appendChild(el)
+	}   
 	   
 	   
 	   
