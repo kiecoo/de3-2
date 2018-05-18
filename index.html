@@ -1,4 +1,4 @@
-// edit format
+// Q1
 <!doctype html>
 <html>
   <head>
@@ -201,7 +201,7 @@
           console.log(`github sent us lots of data, so lets use it to build the page :-)`)
 
           // I don't know how to deal with these 4 lines & function next(L212)
-          var el = page(data)
+          var el = next(data)  // I am not sure if using next(data) is right.
           fx_done(el)
           document.body.innerHTML = '' // to clear and remove the signup button
           document.body.appendChild(el)
