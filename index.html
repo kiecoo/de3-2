@@ -1,4 +1,4 @@
-// edit next() and signin-button
+//  move document.body.innerHTML = '' // to clear and remove the signup button
 <!doctype html>
 <html>
   <head>
@@ -200,11 +200,9 @@
           if (error) return console.error(error)
           console.log(`github sent us lots of data, so lets use it to build the page :-)`)
 
-          // I don't know how to deal with these 4 lines & function next(L212)
-          var el = next(data)  
-          fx_done(el)
           document.body.innerHTML = '' // to clear and remove the signup button
-          document.body.appendChild(el)
+          var el = next(data)  
+          fx_done(el)          
         }
         // getGithubData (next)
         /*
