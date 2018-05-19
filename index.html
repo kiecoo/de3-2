@@ -1,4 +1,4 @@
-//  move document.body.innerHTML = '' // to clear and remove the signup button
+//  deal with error is not defined
 <!doctype html>
 <html>
   <head>
@@ -185,16 +185,16 @@
         var code = location.search.split('=')[1]
         console.log(code)
         if (code) {
-          loadCode (error, code)
+          loadCode (code)
         } else {
           document.body.appendChild(button)
         }
 
         // this is triggered when the user clicks the button
-        function loadCode (error, code) {
-          if (error) return console.error(error)
+        function loadCode (code) {
+          //if (error) return console.error(error)
           console.log(`github responded with "${code}", so let's fetch a lot of data :-)`)
-          getGithubData(code, loadData)
+          getGithubData(code, loadData) //getData("xxx", function callback (error, data) {}
         }
         function loadData (error, data) {
           if (error) return console.error(error)
